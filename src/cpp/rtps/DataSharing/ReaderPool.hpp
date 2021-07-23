@@ -123,13 +123,17 @@ public:
         }
 
         // Set the reading pointer
+        next_payload_ = begin();
         if (is_volatile_)
         {
-            next_payload_ = end();
-        }
-        else
-        {
-            next_payload_ = begin();
+            CacheChange_t ch;
+            SequenceNumber_t last_sequence = c_SequenceNumber_Unknown;
+            get_next_unread_payload(ch, last_sequence);
+            while (ch.sequenceNumber != c_SequenceNumber_Unknown)
+            {
+                advance(next_payload_);
+                get_next_unread_payload(ch, last_sequence);
+            }
         }
 
         return true;
