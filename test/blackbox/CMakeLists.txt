@@ -244,6 +244,10 @@ if(NOT ((MSVC OR MSVC_IDE) AND EPROSIMA_INSTALLER) AND fastcdr_FOUND)
             ${CMAKE_CURRENT_BINARY_DIR}/PubSubWriter.xml)
         configure_file(${CMAKE_CURRENT_SOURCE_DIR}/PubSubReader.xml.in
             ${CMAKE_CURRENT_BINARY_DIR}/PubSubReader.xml)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/PubSubWriterPersistence.xml.in
+            ${CMAKE_CURRENT_BINARY_DIR}/PubSubWriterPersistence.xml)
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/PubSubReaderPersistence.xml.in
+            ${CMAKE_CURRENT_BINARY_DIR}/PubSubReaderPersistence.xml)
         configure_file(${CMAKE_CURRENT_SOURCE_DIR}/discovery_participant_flags.xml
             ${CMAKE_CURRENT_BINARY_DIR}/discovery_participant_flags.xml)
         configure_file(${CMAKE_CURRENT_SOURCE_DIR}/persistence.xml
